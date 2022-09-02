@@ -1,0 +1,33 @@
+
+<div class="login-page">
+    <h2 style="text-align:center;">Existing Users</h2>
+    <div class="form">
+      <form class="login-form">
+        <kendo-label>Username</kendo-label>
+        <input type="text"  [(ngModel)]="userName" name="userName" />
+        <kendo-label>Password</kendo-label>
+        <input type="password"  [(ngModel)]="password" name="password"/>
+        <button (click)="onLogin()">Login</button>
+        <p class="message">Not registered? <a [routerLink]= "['/register']">Create an account</a></p>
+      </form>
+    </div>
+    <kendo-dialog
+        title="Login Failed!"
+        *ngIf="open"
+        [minWidth]="250"
+        [width]="450"
+      >
+        <p style="margin: 30px; text-align: center; color: red;">
+        
+         Check username and password.
+         <br>
+         If you are a new user please register
+        </p>
+        <kendo-dialog-actions>
+          <button kendoButton (click)="close()">Close</button>
+          <button kendoButton routerLink="/register" themeColor="primary">
+            New User
+          </button>
+        </kendo-dialog-actions>
+      </kendo-dialog>
+  </div>

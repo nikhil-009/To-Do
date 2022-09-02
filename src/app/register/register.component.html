@@ -1,0 +1,75 @@
+<div class="container">
+<h2 style="text-align:center;">New User</h2>
+<div class="example-wrap">
+    <form class="k-form" [formGroup]="registerForm">
+      <fieldset class="k-form-fieldset">
+        <kendo-formfield>
+          <kendo-label [for]="firstName" text="First Name"></kendo-label>
+          <input
+            formControlName="firstName"
+            kendoTextBox
+            #firstName
+          />
+          <kendo-formerror>Error: First name is required</kendo-formerror>
+        </kendo-formfield>
+
+        <kendo-formfield>
+          <kendo-label [for]="lastName" text="Last Name"></kendo-label>
+          <input formControlName="lastName" kendoTextBox #lastName  />
+          <kendo-formerror>Error: Last name is required</kendo-formerror>
+        </kendo-formfield>
+        <kendo-formfield>
+            <kendo-label
+      class="k-radio-label"
+     
+      text="Gender"
+    ></kendo-label>
+    <input type="radio" value="male" formControlName="gender" kendoRadioButton />Male
+    <input type="radio" value="female" formControlName="gender" kendoRadioButton />Female
+    <input type="radio" value="others" formControlName="gender" kendoRadioButton />Others
+        </kendo-formfield>
+
+        <kendo-formfield>
+          <kendo-label
+            [for]="birthDate"
+            text="Birth Date"
+          ></kendo-label>
+          <kendo-datepicker
+            #birthDate
+            formControlName="birthDate"
+            [min]="min"
+            [max]="max"
+          >
+          </kendo-datepicker>
+          <kendo-formerror>Error:  Dob is required</kendo-formerror>
+        </kendo-formfield>
+
+        <kendo-formfield>
+          <kendo-label [for]="email" text="Email"></kendo-label>
+          <input formControlName="email" kendoTextBox #email/>
+          <kendo-formhint>Your active email</kendo-formhint>
+          <kendo-formerror *ngIf= "registerForm.controls.email.errors?.required">Error: Email is Required</kendo-formerror>
+          <kendo-formerror *ngIf= "registerForm.controls.email.errors?.email">Error: Not valid email format</kendo-formerror>
+        </kendo-formfield>        
+
+          <kendo-formfield>
+            <kendo-label [for]="password" text="Password"></kendo-label>
+          <input formControlName="password" kendoTextBox #password/>
+          <kendo-formerror>Error:  Password is required</kendo-formerror>
+
+          </kendo-formfield> 
+          <kendo-formfield>
+            <kendo-label [for]="password" text="Confirm Password"></kendo-label>
+          <input formControlName="confirmPassword" kendoTextBox #password/>
+          <kendo-formerror *ngIf= "registerForm.controls.email.errors?.required">Error:  Re-type Password</kendo-formerror>
+          </kendo-formfield> 
+          <kendo-formerror *ngIf= "passwordMatchError ">Error:  Passwords Don't Match</kendo-formerror>
+
+          <div class="k-form-buttons">
+            <button [disabled]="!registerForm.valid" kendoButton themeColor="success" (click)="saveForm()">Save</button>
+            <button [disabled]= "!registerForm.dirty" kendoButton themeColor="secondary" (click)="clearForm()">Clear</button>
+          </div>
+      </fieldset>
+    </form>
+  </div>
+</div>

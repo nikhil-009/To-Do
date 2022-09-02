@@ -1,0 +1,35 @@
+
+ <div class="wrapper">
+    <kendo-tabstrip
+     (tabSelect)="onTabSelect($event)"
+     >
+      <kendo-tabstrip-tab  title="All Tasks" [selected]="true">
+        <ng-template kendoTabContent >
+          <div class="content">
+           <app-all-tasks></app-all-tasks>
+          </div>
+        </ng-template>
+      </kendo-tabstrip-tab>
+      <kendo-tabstrip-tab title="Create Task">
+        <ng-template kendoTabContent>
+          <div class="content">
+            <app-create-task  (dataChange)="onChange($event)"></app-create-task>
+          </div>
+        </ng-template>
+      </kendo-tabstrip-tab>      
+      <kendo-tabstrip-tab title="In Progress">
+        <ng-template kendoTabContent>
+          <div class="content">
+            <app-progress-tasks></app-progress-tasks>
+          </div>
+        </ng-template>
+      </kendo-tabstrip-tab>
+      <kendo-tabstrip-tab title="Completed">
+        <ng-template kendoTabContent>
+          <div class="content">
+            <app-completed-tasks></app-completed-tasks>
+          </div>
+        </ng-template>
+      </kendo-tabstrip-tab>
+    </kendo-tabstrip>
+  </div>

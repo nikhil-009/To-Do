@@ -1,0 +1,30 @@
+<kendo-listview
+      [data]="tasks"
+      index="index"
+      containerClass="k-d-flex k-flex-col k-flex-nowrap"
+    >
+      <ng-template kendoListViewHeaderTemplate>
+        <div class="header">Task List</div>
+      </ng-template>
+      <ng-template
+        kendoListViewItemTemplate
+        let-dataItem="dataItem"
+        let-isFirst="isFirst"
+        let-index="index"
+      >
+        <data-card
+          class="tasks"
+          [userid]="user"
+          [dataIndex]="index"
+          [data]="dataItem"
+          [borderTop]="!isFirst"
+          (dataChange)="onChange($event)"
+        >
+        </data-card>
+      </ng-template>
+      <ng-template kendoListViewFooterTemplate>
+        <div class="footer"> Total Tasks:{{tasks.length}}</div>
+      </ng-template>
+    </kendo-listview>
+
+

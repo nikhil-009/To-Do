@@ -1,0 +1,27 @@
+<div>
+    <form #form="ngForm">
+        <kendo-formfield>
+            <kendo-label [for]="name">Task Name</kendo-label>
+            <input type="text" #name [(ngModel)]= "task.name" name="name" kendo-textbox/>
+        </kendo-formfield>
+        <kendo-formfield>
+            <kendo-label [for]= "des"> Description  </kendo-label>
+                <textarea #des [(ngModel)]= "task.description" name="description"></textarea>      
+        </kendo-formfield>
+        <kendo-formfield>
+            <kendo-label [for]= "time">Time Required(In hours)</kendo-label>
+            <input type="text" #time [(ngModel)]= "task.duration" name="duration" kendo-textbox/>
+        </kendo-formfield>
+        <kendo-formfield>
+            <kendo-label [for]= "dueDate">Due Date</kendo-label>
+            <kendo-datepicker
+            name="dueDate"
+            #dueDate
+            format="dd/MMM/yyyy"
+            [(ngModel)]= "dat"
+            >
+            </kendo-datepicker>
+        </kendo-formfield>
+    </form>
+    <button kendoButton themeColor="success" (click)="onCreate()">Create</button>
+</div>
