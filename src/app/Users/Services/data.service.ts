@@ -59,6 +59,11 @@ export class DataService {
         }
       }       
     }
+    for(let i=0;i<dat.tasks.length;i++){
+      if(!dat.tasks[i].id)
+      dat.tasks[i].id=i+1
+    }
+    
     return dat
   }
 
@@ -76,12 +81,14 @@ export class DataService {
     //debugger;
     if(DataString)
     { Task=JSON.parse(DataString);
-      for(let i=0;i<Task.length;i++){
-        if(Task[i].id===id){
-         dat= Task[i]         
-      }       
-    }      
-   
+    Task.forEach(data=>{
+      if(data.id===id)
+      dat=data
+    });
+    // debugger;
+    // let val=Task.filter((data:any)=>{
+    //   return data.id===id
+    // })   
    tasks= dat.tasks.filter((data:any)=>{
     return data.status===status
    })
@@ -100,12 +107,14 @@ export class DataService {
     //   id: 0,
     //   tasks: []
     // } 
-    debugger;
+    //debugger;
     if(DataString){
       Task=JSON.parse(DataString)
       for(let i=0;i<Task.length;i++){
         if(Task[i].id===id){
-         Task[i].tasks[index]=data         
+          for(let j=0;j<Task[i].tasks.length;j++)
+          if( Task[i].tasks[j].id===data.id )
+            Task[i].tasks[j]=data        
       }
     }  
     localStorage.setItem('Data',JSON.stringify(Task));

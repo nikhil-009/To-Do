@@ -35,9 +35,11 @@ export class DataCardComponent   {
   }
   editDetails(){
     this.open='edit'
+    console.log("index:",this.dataIndex);
     this.dat=new Date(this.data.dueDate)    
   }
   removeTask(){
+    console.log("index:",this.dataIndex);
     this.open='remove'
   }
   action(act:string){
