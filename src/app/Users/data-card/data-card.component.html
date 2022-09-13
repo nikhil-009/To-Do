@@ -1,115 +1,124 @@
-
- <div class="task" [class.border-top]="borderTop">
-    <!-- <kendo-avatar
+<div class="task" [class.border-top]="borderTop">
+  <!-- <kendo-avatar
       [imageSrc]="getImageUrl(task.id)"
       shape="circle"
       width="40"
       height="40"
     >
     </kendo-avatar> -->
-    <div class="task-details">
-      <div class="task-name">{{ data.name }}</div>
-      <div class="task-description">{{ data.description }}</div>
-    </div>
-    <button
-      kendoButton
-      (click)= "getDetails()"
-    >
-    <kendo-icon themeColor="primary" name="info"></kendo-icon> 
-    </button>
-    <button
-      kendoButton
-      (click)= "editDetails()"
-    >
-    <kendo-icon themeColor="dark" name="edit"></kendo-icon> 
-    </button>
-    <button
-      kendoButton
-      (click)= "removeTask()"
-  >
-  <kendo-icon themeColor="error" name="delete"></kendo-icon> 
+  <div class="task-details">
+    <div class="task-name">{{ data.name }}</div>
+    <div class="task-description">{{ data.description }}</div>
+  </div>
+  <button kendoButton (click)="getDetails()">
+    <kendo-icon themeColor="primary" name="info"></kendo-icon>
   </button>
-    <kendo-dialog
-        title="Task Details"
-        *ngIf= "open=='dialog'"
-        (close)="close()"
-        [minWidth]="250"
-        [width]="450"
-      >
-        <div style="margin: 30px; text-align: left;">
-         Name:{{data.name|titlecase}}
-         <br>
-         Description:{{data.description|titlecase}}
-         <br>
-         Alloted Time(Hour):{{data.duration}}
-         <br>
-         Due Date:{{data.dueDate|date}}
-         <br>
-         Status:{{data.status}}
-        </div>
-        <kendo-dialog-actions>
-        </kendo-dialog-actions>
-      </kendo-dialog>
-      <kendo-dialog
-      title="Update Task"
-      *ngIf= "open=='edit'"
-      (close)="close()"
-      [minWidth]="250"
-     
-      [width]="450"
-    >
-      <div style="margin: 30px; text-align: left;">
-        <form #form="ngForm">
+  <button kendoButton (click)="editDetails()">
+    <kendo-icon themeColor="dark" name="edit"></kendo-icon>
+  </button>
+  <button kendoButton (click)="removeTask()">
+    <kendo-icon themeColor="error" name="delete"></kendo-icon>
+  </button>
+  <kendo-dialog
+    title="Task Details"
+    *ngIf="open == 'dialog'"
+    (close)="close()"
+    [minWidth]="250"
+    [width]="450"
+  >
+    <div style="margin: 30px; text-align: left">
+      Name:{{ data.name | titlecase }}
+      <br />
+      Description:{{ data.description | titlecase }}
+      <br />
+      Alloted Time(Hour):{{ data.duration }}
+      <br />
+      Due Date:{{ data.dueDate | date }}
+      <br />
+      Status:{{ data.status }}
+    </div>
+    <kendo-dialog-actions> </kendo-dialog-actions>
+  </kendo-dialog>
+  <kendo-dialog
+    title="Update Task"
+    *ngIf="open == 'edit'"
+    (close)="close()"
+    [minWidth]="250"
+    [width]="450"
+  >
+    <div style="margin: 30px; text-align: left">
+      <form #form="ngForm">
         <kendo-formfield>
-            <kendo-label [for]="name">Task Name</kendo-label>
-            <input type="text" #name [(ngModel)]= "data.name" name="name" kendo-textbox/>
+          <kendo-label [for]="name">Task Name</kendo-label>
+          <input
+            type="text"
+            #name
+            [(ngModel)]="data.name"
+            name="name"
+            kendo-textbox
+          />
         </kendo-formfield>
         <kendo-formfield>
-            <kendo-label [for]= "des"> Description  </kendo-label>
-                <textarea #des [(ngModel)]= "data.description" name="description"></textarea>      
+          <kendo-label [for]="des"> Description </kendo-label>
+          <textarea
+            #des
+            [(ngModel)]="data.description"
+            name="description"
+          ></textarea>
         </kendo-formfield>
         <kendo-formfield>
-            <kendo-label [for]= "time">Time Required(In hours)</kendo-label>
-            <input type="text" #time [(ngModel)]= "data.duration" name="duration" kendo-textbox/>
+          <kendo-label [for]="time">Time Required(In hours)</kendo-label>
+          <input
+            type="text"
+            #time
+            [(ngModel)]="data.duration"
+            name="duration"
+            kendo-textbox
+          />
         </kendo-formfield>
         <kendo-formfield>
-            <kendo-label [for]= "dueDate">Due Date</kendo-label>
-            <kendo-datepicker
+          <kendo-label [for]="dueDate">Due Date</kendo-label>
+          <kendo-datepicker
             name="dueDate"
             #dueDate
             format="dd/MMM/yyyy"
-            [(ngModel)]= "dat"
-            >
-            </kendo-datepicker>
+            [(ngModel)]="dat"
+          >
+          </kendo-datepicker>
         </kendo-formfield>
         <kendo-formfield>
           <div class="col-xs-12 col-sm-6 example-col">
             <kendo-label text="Change Status">
               <br />
-              <kendo-dropdownlist [data]= '["ongoing","completed"]' [(ngModel)]= "data.status" name="status">
+              <kendo-dropdownlist
+                [data]="['ongoing', 'completed']"
+                [(ngModel)]="data.status"
+                name="status"
+              >
               </kendo-dropdownlist>
             </kendo-label>
-          </div>      </kendo-formfield>
-    </form>
-      </div>
-      <kendo-dialog-actions>
-        <button kendoButton (click)="action('update')">Save</button>
-        <button kendoButton (click)="close()" themeColor="primary">Cancel </button>
-      </kendo-dialog-actions>
-    </kendo-dialog>
-    <kendo-dialog
-      title="Confirm"
-      *ngIf= "open=='remove'"
-      (close)="close()"
-      [minWidth]="250"
-      [width]="450"
-    >
-      <div style="margin: 30px; text-align: left;">
+          </div>
+        </kendo-formfield>
+      </form>
+    </div>
+    <kendo-dialog-actions>
+      <button kendoButton (click)="action('update')">Save</button>
+      <button kendoButton (click)="close()" themeColor="primary">Cancel</button>
+    </kendo-dialog-actions>
+  </kendo-dialog>
+  <kendo-dialog
+    title="Confirm"
+    *ngIf="open == 'remove'"
+    (close)="close()"
+    [minWidth]="250"
+    [width]="450"
+  >
+    <div style="margin: 30px; text-align: left">
       Are You Sure You Want To Delete Task?
-      </div>
-      <kendo-dialog-actions>
-        <button kendoButton (click)="action('remove')">Yes</button>
-        <button kendoButton (click)="close()" themeColor="primary">No</button>
-      </kendo-dialog-actions>
-    </kendo-dialog>
-  </div>
+    </div>
+    <kendo-dialog-actions>
+      <button kendoButton (click)="action('remove')">Yes</button>
+      <button kendoButton (click)="close()" themeColor="primary">No</button>
+    </kendo-dialog-actions>
+  </kendo-dialog>
+</div>

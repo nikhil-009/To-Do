@@ -6,18 +6,15 @@ import { appState } from 'src/app/Store/app.state';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-
-  constructor(private store:Store<appState>) {
-    console.log(('dashboard'));
-    this.store.select(getLogin).subscribe((res)=>{
-      console.log("state:",res);      
-    })
-   }
-
-  ngOnInit(): void {
+  constructor(private store: Store<appState>) {
+    console.log('dashboard');
+    this.store.select(getLogin).subscribe((res) => {
+      console.log('state:', res);
+    });
   }
 
+  ngOnInit(): void {}
 }

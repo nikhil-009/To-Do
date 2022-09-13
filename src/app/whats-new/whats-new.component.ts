@@ -3,14 +3,12 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-whats-new',
   templateUrl: './whats-new.component.html',
-  styleUrls: ['./whats-new.component.scss']
+  styleUrls: ['./whats-new.component.scss'],
 })
 export class WhatsNewComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
   public firstTileContent = `Reactive Netscape cherry pick domain contribution lazy Edge program.
         Quick sort modern bundle incognito Cloudfront views CLI Safari UX.`;
   public secondTileContent = `Lazy reflog freelancer Dijkstra directed acyclic graph concurrent uglify concurrency Safari.
@@ -19,5 +17,4 @@ export class WhatsNewComponent implements OnInit {
         Asynchronous dependency injection engineer tree shaking lang architecture Linux infrastructure queue off-by-one error.`;
   public fourthTileContent = `Infrastructure tl;dr spy data store remote procedure call bootcamp pairing child keycaps.
         Grep kernel contribute UI casting composition over inheritance remote minification void.`;
-
 }

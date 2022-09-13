@@ -14,6 +14,7 @@ export class CreateTaskComponent implements OnInit {
   @Output() dataChange=new EventEmitter<string>()
   dat:Date=new Date()
   task:Tasks={
+    id:0,
    name: '',
    description: '',
    duration: 0,
@@ -33,13 +34,15 @@ export class CreateTaskComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  onCreate(){    
+  onCreate(){ 
+    //this.task.id=  
     this.task.dueDate=this.dat.getTime()
     //console.log("data:",this.task);
     this.dataService.setData(this.task,this.user)
     this.dataChange.emit('dataChanged') 
     this.show("Task Created") 
     this.task={
+      id:0,
       name: '',
       description: '',
       duration: 0,

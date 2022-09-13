@@ -1,36 +1,50 @@
 <kendo-appbar position="top">
-    <kendo-appbar-section>
-      <button kendoButton fillMode="flat">
-        <kendo-icon name="menu"></kendo-icon>
+  <kendo-appbar-section>
+    <button kendoButton fillMode="flat">
+      <kendo-icon name="menu"></kendo-icon>
+    </button>
+  </kendo-appbar-section>
+
+  <kendo-appbar-section>
+    <h1 class="title" routerLink="/">MY APPLICATION</h1>
+  </kendo-appbar-section>
+
+  <kendo-appbar-spacer width="32px"></kendo-appbar-spacer>
+
+  <kendo-appbar-section>
+    <ul>
+      <li><span [routerLink]="['/whats-new']">What's New</span></li>
+      <li><span [routerLink]="['/about']">About</span></li>
+    </ul>
+  </kendo-appbar-section>
+
+  <kendo-appbar-spacer></kendo-appbar-spacer>
+
+  <kendo-appbar-section *ngIf="visible">
+    <button kendoButton themeColor="success" [routerLink]="['/login']">
+      Login
+    </button>
+  </kendo-appbar-section>
+  <kendo-appbar-section *ngIf="!visible">
+    <button
+      kendoButton
+      themeColor="success"
+      (click)="show()"
+      [routerLink]="['/whats-new']"
+    >
+      Log Out
+    </button>
+  </kendo-appbar-section>
+  <kendo-appbar-section class="actions">
+    <kendo-badge-container>
+      <button
+        kendoButton
+        fillMode="flat"
+        [routerLink]="['/register']"
+        *ngIf="visible"
+      >
+        Register?
       </button>
-    </kendo-appbar-section>
-
-    <kendo-appbar-section>
-      <h1 class="title" routerLink="/">MY APPLICATION</h1>
-    </kendo-appbar-section>
-
-    <kendo-appbar-spacer width="32px"></kendo-appbar-spacer>
-
-    <kendo-appbar-section>
-      <ul>
-        <li><span [routerLink]= "['/whats-new']">What's New</span></li>
-        <li><span [routerLink]="['/about']">About</span></li>
-      </ul>
-    </kendo-appbar-section>
-
-    <kendo-appbar-spacer></kendo-appbar-spacer>
-
-    <kendo-appbar-section *ngIf= "visible">
-      <button kendoButton themeColor="success" [routerLink]="['/login']">Login</button>      
-    </kendo-appbar-section>
-    <kendo-appbar-section *ngIf= "!visible">
-      <button kendoButton themeColor="success" (click)="show()" [routerLink]="['/whats-new']">Log Out</button>      
-    </kendo-appbar-section>
-    <kendo-appbar-section class="actions">
-        <kendo-badge-container>
-          <button kendoButton fillMode="flat"  [routerLink]="['/register']" *ngIf= "visible">
-            Register?
-          </button>
-        </kendo-badge-container>
-      </kendo-appbar-section>
-  </kendo-appbar>
+    </kendo-badge-container>
+  </kendo-appbar-section>
+</kendo-appbar>

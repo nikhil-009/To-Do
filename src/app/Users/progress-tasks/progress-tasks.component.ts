@@ -7,23 +7,21 @@ import { DataService } from '../Services/data.service';
 @Component({
   selector: 'app-progress-tasks',
   templateUrl: './progress-tasks.component.html',
-  styleUrls: ['./progress-tasks.component.scss']
+  styleUrls: ['./progress-tasks.component.scss'],
 })
 export class ProgressTasksComponent implements OnInit {
-  user!:number
-  tasks:Tasks[]=[]
+  user!: number;
+  tasks: Tasks[] = [];
 
-  constructor(private dataService:DataService,private store:Store) {
-    this.store.select(getLogin).subscribe(res=>{
-      this.user=res
-      this.tasks=this.dataService.getDataByStatus('ongoing',this.user)
-     })    
-   }
-
-  ngOnInit(): void {
-  }
-  onChange(data:string){
-    this.tasks=this.dataService.getDataByStatus('ongoing',this.user)
+  constructor(private dataService: DataService, private store: Store) {
+    this.store.select(getLogin).subscribe((res) => {
+      this.user = res;
+      this.tasks = this.dataService.getDataByStatus('ongoing', this.user);
+    });
   }
 
+  ngOnInit(): void {}
+  onChange(data: string) {
+    this.tasks = this.dataService.getDataByStatus('ongoing', this.user);
+  }
 }

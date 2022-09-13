@@ -26,7 +26,6 @@ import { StoreModule } from '@ngrx/store';
 import { appReducer } from './Store/app.state';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +35,7 @@ import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
     LoginComponent,
     WhatsNewComponent,
     AboutComponent,
-    DashboardComponent
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,15 +48,15 @@ import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
     NavigationModule,
     BrowserAnimationsModule,
     IndicatorsModule,
-    ButtonsModule,    
+    ButtonsModule,
     LabelModule,
     InputsModule,
     DialogsModule,
     NotificationModule,
     LayoutModule,
-    DropDownsModule
+    DropDownsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

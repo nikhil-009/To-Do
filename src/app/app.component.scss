@@ -1,38 +1,38 @@
-.myapp{
-    background-color: cornflowerblue;
-    padding: 0px;
+.myapp {
+  background-color: cornflowerblue;
+  padding: 0px;
 }
-.header{
-    margin-top: 0px;
-    height: 26px;
-    //min-height: 60px;
+.header {
+  margin-top: 0px;
+  height: 26px;
+  //min-height: 60px;
 }
-.container{
-    margin: 0px;  
-  width:100%;
+.container {
+  margin: 0px;
+  width: 100%;
   display: flex;
   overflow-y: auto;
   height: calc(75vh);
 }
-.contents{
-    width: 70%;
-    position: relative;       
-    overflow-x: hidden;      
-   // width: 100%;
+.contents {
+  width: 70%;
+  position: relative;
+  overflow-x: hidden;
+  // width: 100%;
 }
-.login{
-    float: right;
-    position: relative;        
-    overflow-x: hidden;  
-   // width: 30%;
+.login {
+  float: right;
+  position: relative;
+  overflow-x: hidden;
+  // width: 30%;
 }
-.footer{
-    position: relative;
-    overflow: hidden;
-    //margin-top: 650px;
-    margin-bottom:0px;
-    padding-bottom:0px;
-    height: 20vh;
-    width: 100%;
-    background-color:dimgrey;
+.footer {
+  position: relative;
+  overflow: hidden;
+  //margin-top: 650px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  height: 20vh;
+  width: 100%;
+  background-color: dimgrey;
 }

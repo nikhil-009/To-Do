@@ -1,14 +1,13 @@
 <div class="container">
-<kendo-label [for]="tile" style="color: black;">
+  <kendo-label [for]="tile" style="color: black">
     <h2>About</h2>
-</kendo-label>
-<kendo-tilelayout #tile [columns]="1" autoFlow="none" [reorderable]="true">
+  </kendo-label>
+  <kendo-tilelayout #tile [columns]="1" autoFlow="none" [reorderable]="true">
     <kendo-tilelayout-item title="Tile 1">
       <kendo-tilelayout-item-body>
         {{ firstTileContent }}
-        <br>
+        <br />
         {{ firstTileContent }}
-      
       </kendo-tilelayout-item-body>
     </kendo-tilelayout-item>
 
@@ -17,6 +16,5 @@
         {{ secondTileContent }}
       </kendo-tilelayout-item-body>
     </kendo-tilelayout-item> -->
-
   </kendo-tilelayout>
 </div>

@@ -5,7 +5,10 @@ import { ActivitiesComponent } from './activities/activities.component';
 import { LayoutModule } from '@progress/kendo-angular-layout';
 import { InputsModule } from '@progress/kendo-angular-inputs';
 import { CreateTaskComponent } from './create-task/create-task.component';
-import { FloatingLabelModule, LabelModule } from '@progress/kendo-angular-label';
+import {
+  FloatingLabelModule,
+  LabelModule,
+} from '@progress/kendo-angular-label';
 import { FormsModule } from '@angular/forms';
 import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
 import { ListViewModule } from '@progress/kendo-angular-listview';
@@ -18,9 +21,6 @@ import { IconsModule } from '@progress/kendo-angular-icons';
 import { NotificationModule } from '@progress/kendo-angular-notification';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 
-
-
-
 @NgModule({
   declarations: [
     ActivitiesComponent,
@@ -28,7 +28,7 @@ import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
     AllTasksComponent,
     DataCardComponent,
     ProgressTasksComponent,
-    CompletedTasksComponent
+    CompletedTasksComponent,
   ],
   imports: [
     CommonModule,
@@ -43,7 +43,7 @@ import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
     FormsModule,
     DialogsModule,
     ListViewModule,
-    DropDownsModule
-  ]
+    DropDownsModule,
+  ],
 })
-export class UserModule { }
+export class UserModule {}

@@ -6,29 +6,28 @@ import { RegisterComponent } from './register/register.component';
 import { WhatsNewComponent } from './whats-new/whats-new.component';
 
 const routes: Routes = [
-  {path:'register',
-component:RegisterComponent},
+  { path: 'register', component: RegisterComponent },
   {
-    path:'whats-new',
-    component:WhatsNewComponent    
+    path: 'whats-new',
+    component: WhatsNewComponent,
   },
   {
-  path:'',
-  component:WhatsNewComponent 
-},
-{path:'about',
-component:AboutComponent
-},
-{
-  path:'login',
-  component:LoginComponent
-},
-{path:'dashboard',
-loadChildren:()=> import('./Users/user.module').then(m=>m.UserModule)
-}];
+    path: '',
+    component: WhatsNewComponent,
+  },
+  { path: 'about', component: AboutComponent },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./Users/user.module').then((m) => m.UserModule),
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
